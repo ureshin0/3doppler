@@ -2,14 +2,12 @@ import healpy as hp
 import numpy as np
 import matplotlib.pyplot as plt
 
-def make_spot(nside, spot_theta, spot_phi, spot_radius, spot_intensity):
+def make_spot(spot_theta, spot_phi, spot_radius, spot_intensity, nside=64):
     """
     スポットが1つあるマップを作る。
     
     Parameters
     ----------
-    nside : int
-        マップの解像度を決めるパラメータで、2の累乗。
     spot_theta : float
         スポット中心のθ座標(rad)。
     spot_phi : float
@@ -18,7 +16,9 @@ def make_spot(nside, spot_theta, spot_phi, spot_radius, spot_intensity):
         スポットの半径(rad)。
     spot_intensity : float
         スポットの強度(0が真っ黒)。
-    
+    nside : int
+        マップの解像度を決めるパラメータで、2の累乗。
+        
     Examples
     ----------
     map = make_spot(np.pi/2, np.pi/4, np.pi/10, 0.2)
