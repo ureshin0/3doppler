@@ -113,9 +113,9 @@ if __name__ == "__main__":
     vrot = 20  # 回転速度 (km/s)
     wl0=656.28
     wl = np.linspace(wl0-0.04, wl0+0.04, 1000)
-    line_profile = norm.pdf(wl, wl0, 0.01)  # 波長0.01nm幅のガウシアン
+    line_profile = 1-norm.pdf(wl, wl0, 0.01)  # 波長0.01nm幅のガウシアン
 
-    map = make_spot(64, spot_theta, spot_phi, spot_radius, spot_intensity)
+    map = make_spot(spot_theta, spot_phi, spot_radius, spot_intensity, nside=64)
 
     hp.mollview(map, title="Star Surface with Spot", min=0., cmap="inferno", unit="Intensity", flip='geo')
     plt.savefig('spot.png')
